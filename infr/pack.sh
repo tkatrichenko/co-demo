@@ -7,7 +7,7 @@ tmpLog="tmp.log"
 
 cd app
 
-cat >> "Dockerfile" << EOF
+cat > "Dockerfile" << EOF
 FROM nginx:latest
 RUN apt-get update
 RUN apt-get install -y curl

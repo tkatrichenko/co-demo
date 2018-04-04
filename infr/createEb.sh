@@ -30,7 +30,7 @@ branch-defaults:
 global:
   application_name: ${ebApp}
   default_ec2_keyname: test_co
-  default_platform: 64bit Amazon Linux 2017.09 v2.9.2 running Multi-container Docker 17.12.0-ce (Generic)
+  default_platform: Docker 17.12.0-ce on 64bit Amazon Linux 2017.09 v2.9.2
   default_region: us-east-2
   profile: null
   sc: null

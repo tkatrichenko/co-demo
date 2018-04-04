@@ -1,7 +1,9 @@
 #!/bin/bash
 
-ecrAcc=$1
-ecrRepo=$2
+#ecrAcc=$1
+#ecrRepo=$2
+myDockerAcc=$1
+myDockerRepo=$2
 ebApp=$3
 ebEnv=$4
 
@@ -14,7 +16,7 @@ cat >> Dockerrun.aws.json << EOF
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-        "Name": "${ecrAcc}/${ecrRepo}:latest",
+        "Name": "$myDockerAcc/$myDockerRepo:latest",
         "Update": "true"
     },
     "Ports": [

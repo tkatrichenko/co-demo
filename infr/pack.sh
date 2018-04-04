@@ -1,5 +1,7 @@
-ecrAcc=$1
-ecrRepo=$2
+#ecrAcc=$1
+#ecrRepo=$2
+myDockerAcc=$1
+myDockerRepo=$2
 
 tmpLog="tmp.log"
 
@@ -13,10 +15,12 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 EOF
 
-ecrlogin=$(aws ecr get-login --no-include-email --region us-east-2)
-sudo $ecrlogin
+#ecrlogin=$(aws ecr get-login --no-include-email --region us-east-2)
+#sudo $ecrlogin
 
-sudo docker build -t ${ecrAcc}/${ecrRepo} . > "${tmpLog}"
+
+#sudo docker build -t ${ecrAcc}/${ecrRepo} . > "${tmpLog}"
+sudo docker build -t $myDockerAcc/$myDockerRepo . > $tmpLog
 cat "${tmpLog}"
 grep -q "Successfully built" ""${tmpLog}""
 if [ $? -ne 0 ]; then {
@@ -28,7 +32,8 @@ if [ $? -ne 0 ]; then {
     }
 fi
 
-sudo docker push ${ecrAcc}/${ecrRepo}:latest > "${tmpLog}"
+#sudo docker push ${ecrAcc}/${ecrRepo}:latest > "${tmpLog}"
+sudo docker push $myDockerAcc/$myDockerRepo > $tmpLog
 cat "${tmpLog}"
 grep -q "digest" ""${tmpLog}""
 if [ $? -ne 0 ]; then {

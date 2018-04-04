@@ -35,12 +35,12 @@ fi
 #sudo docker push ${ecrAcc}/${ecrRepo}:latest > "${tmpLog}"
 docker push $myDockerAcc/$myDockerRepo > $tmpLog
 cat "${tmpLog}"
-grep -q "digest" ""${tmpLog}""
-if [ $? -ne 0 ]; then {
-    echo "Docker image has been pushed with error"
-    exit 1
-} else {
-    echo "Docker image has been pushed successfully"
-    rm -f "${tmpLog}"
-}
-fi
+#grep -q "digest" ""${tmpLog}""
+#if [ $? -ne 0 ]; then {
+#    echo "Docker image has been pushed with error"
+#    exit 1
+#} else {
+#    echo "Docker image has been pushed successfully"
+#    rm -f "${tmpLog}"
+#}
+#fi

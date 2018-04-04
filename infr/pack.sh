@@ -20,7 +20,7 @@ EOF
 
 
 #sudo docker build -t ${ecrAcc}/${ecrRepo} . > "${tmpLog}"
-sudo docker build -t $myDockerAcc/$myDockerRepo . > $tmpLog
+docker build -t $myDockerAcc/$myDockerRepo . > $tmpLog
 cat "${tmpLog}"
 grep -q "Successfully built" ""${tmpLog}""
 if [ $? -ne 0 ]; then {
@@ -33,7 +33,7 @@ if [ $? -ne 0 ]; then {
 fi
 
 #sudo docker push ${ecrAcc}/${ecrRepo}:latest > "${tmpLog}"
-sudo docker push $myDockerAcc/$myDockerRepo > $tmpLog
+docker push $myDockerAcc/$myDockerRepo > $tmpLog
 cat "${tmpLog}"
 grep -q "digest" ""${tmpLog}""
 if [ $? -ne 0 ]; then {

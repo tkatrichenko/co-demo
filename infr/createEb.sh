@@ -9,7 +9,7 @@ fi
 cd eb
 
 # Create Dockerrun file
-cat >> Dockerrun.aws.json << EOF
+cat > Dockerrun.aws.json << EOF
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
@@ -25,7 +25,7 @@ cat >> Dockerrun.aws.json << EOF
 EOF
 
 mkdir .elasticbeanstalk
-cat >> .elasticbeanstalk/config.yml << EOF
+cat > .elasticbeanstalk/config.yml << EOF
 branch-defaults:
   default:
     environment: ${ebEnv}

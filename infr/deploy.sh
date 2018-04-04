@@ -9,7 +9,10 @@ ebEnv=$4
 
 tmpLog="tmp.log"
 
-mkdir eb && cd eb
+if [ ! -d eb ]; then 
+  mkdir eb
+fi
+cd eb
 
 # Create Dockerrun file
 cat >> Dockerrun.aws.json << EOF

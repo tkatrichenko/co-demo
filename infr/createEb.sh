@@ -3,7 +3,10 @@
 ebApp=$1
 ebEnv=$2
 
-mkdir eb && cd eb
+if [ ! -d eb ]; then 
+  mkdir eb
+fi
+cd eb
 
 # Create Dockerrun file
 cat >> Dockerrun.aws.json << EOF
@@ -29,7 +32,7 @@ branch-defaults:
     group_suffix: null
 global:
   application_name: ${ebApp}
-  default_ec2_keyname: test_co
+  default_ec2_keyname: test-aws4-ohio
   default_platform: Docker
   default_region: us-east-2
   profile: null
